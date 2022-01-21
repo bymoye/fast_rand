@@ -21,7 +21,7 @@ cdef extern from "Rand.hpp":
     long long  _randint      "Storm::uniform_int_variate"(long long, long long)
     long long  _randrange    "Storm::random_range"(long long, long long, long long)
 
-cpdef void seed(unsigned long long rseed=0):
+def seed(rseed:int = 0) -> void:
     _seed(rseed)
 
 def choice(seq):
@@ -29,17 +29,17 @@ def choice(seq):
         return None
     return seq[_randbelow(len(seq))]
 
-cpdef void shuffle(list array):
+def shuffle(array:list) -> None:
     for i in reversed(range(len(array) - 1)):
         j = _randrange(i, len(array), 1)
         array[i], array[j] = array[j], array[i]
 
 
-cpdef int randbelow(int a):
+def randbelow(a:int) -> int:
     return _randbelow(a)
 
-cpdef int randint(int a,int b):
-    return _randint(a, b)
+def randint(a:int,b:int) -> int:
+        return _randint(a, b)
 
-cpdef int randrange(int start,int stop=0,int step=1):
+def randrange(start:int,stop:int=0,step:int=1) -> int:
     return _randrange(start, stop, step)
