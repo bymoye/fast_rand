@@ -1,40 +1,58 @@
 from setuptools import setup, Extension
 from Cython.Build import cythonize
 
+
+def readme():
+    with open("README.md") as f:
+        return f.read()
+
+
 setup(
-    name="rand_int",
+    name="fast_rand",
     ext_modules=cythonize(
         Extension(
-            name="rand_int",
-            sources=["rand_int.pyx"],
+            name="",
+            sources=["rand/fast_rand.pyx"],
             language=["c++"],
-            extra_compile_args=["-std=c++17","-O2"],
+            extra_compile_args=["-std=c++17", "-O3"],
+            extra_link_args=["-O3"],
         ),
         compiler_directives={
-            'language_level': 3,
-            'boundscheck': False,
-            'wraparound': False,
-            'binding': True,
-            'cdivision': True,
+            "language_level": 3,
+            "boundscheck": False,
+            "wraparound": False,
+            "binding": True,
+            "cdivision": True,
         },
     ),
     author="bymoye",
     author_email="s3moye@gmail.com",
-    version="0.0.1",
-    description="Modified from Pyewacket, contains only integer random numbers.",
+    version="0.0.2",
+    description="A fast random number generator for python",
+    long_description=readme(),
+    long_description_content_type="text/markdown",
     license="Free for non-commercial use",
+    package_data={
+        "": [
+            "rand/fast_rand.pyi",
+            "rand/fast_rand.pyx",
+            "rand/fast_rand.hpp",
+            "rand/fast_rand.pxd",
+        ]
+    },
+    include_package_data=True,
     classifiers=[
-    "Development Status :: 5 - Production/Stable",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Cython",
-    "Programming Language :: C++",
-    "Operating System :: POSIX :: Linux",
-    "Operating System :: MacOS :: MacOS X",
-    "Topic :: Software Development :: Libraries :: Python Modules",
+        "Development Status :: 5 - Production/Stable",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Cython",
+        "Programming Language :: C++",
+        "Operating System :: POSIX :: Linux",
+        "Operating System :: MacOS :: MacOS X",
+        "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    python_requires='>=3.6'
+    python_requires=">=3.8",
+    packages=["webp_support"],
 )

@@ -1,0 +1,4 @@
+include rand/fast_rand.pyx
+include rand/fast_rand.pxd
+include rand/fast_rand.pyi
+include rand/fast_rand.hpp
