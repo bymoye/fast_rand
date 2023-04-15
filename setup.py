@@ -12,7 +12,7 @@ setup(
     ext_modules=cythonize(
         Extension(
             name="",
-            sources=["rand/nazo_rand.pyx"],
+            sources=["nazo_rand/nazo_rand.pyx"],
             language=["c++"],
             extra_compile_args=["-std=c++17", "-O3"],
             extra_link_args=["-O3"],
@@ -27,17 +27,17 @@ setup(
     ),
     author="bymoye",
     author_email="s3moye@gmail.com",
-    version="0.0.3",
+    version="0.0.5",
     description="A fast random number generator for python",
     long_description=readme(),
     long_description_content_type="text/markdown",
     license="Free for non-commercial use",
     package_data={
         "": [
-            "rand/nazo_rand.pyi",
-            "rand/nazo_rand.pyx",
-            "rand/nazo_rand.hpp",
-            "rand/nazo_rand.pxd",
+            "nazo_rand/nazo_rand.pyi",
+            "nazo_rand/nazo_rand.pyx",
+            "nazo_rand/nazo_rand.hpp",
+            "nazo_rand/nazo_rand.pxd",
         ]
     },
     include_package_data=True,
@@ -54,5 +54,5 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     python_requires=">=3.8",
-    packages=["rand"],
+    packages=["nazo_rand"],
 )
