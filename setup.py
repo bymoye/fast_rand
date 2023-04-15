@@ -54,5 +54,5 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     python_requires=">=3.8",
-    packages=["webp_support"],
+    packages=["rand"],
 )
