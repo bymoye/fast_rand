@@ -1,4 +1,4 @@
-# rand_int
+# nazo_rand
 
 Inspired to write from [Pyewacket](https://github.com/BrokenShell/Pyewacket)
 
