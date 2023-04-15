@@ -4,12 +4,11 @@ cimport cython
 from libc.stdint cimport int64_t, uint64_t
 
 cdef extern from "nazo_rand.hpp" namespace "Storm":
-    ctypedef int64_t Integer
     void seed(uint64_t seed)
-    Integer uniform_int_variate_noargs()
-    Integer random_range(Integer start, Integer stop, Integer step)
-    Integer random_below(Integer number)
-    Integer uniform_int_variate(Integer a, Integer b)
+    int64_t uniform_int_variate_noargs()
+    int64_t random_range(int64_t start, int64_t stop, int64_t step)
+    int64_t random_below(int64_t number)
+    int64_t uniform_int_variate(int64_t a, int64_t b)
     double uniform_real_variate_noargs()
     double uniform_real_variate(double a, double b)
 
