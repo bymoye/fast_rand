@@ -44,7 +44,7 @@ jobs:
 
       - name: Compile Cython extensions
         run: |
-          cython rand/fast_rand.pyx
+          cython rand/nazo_rand.pyx
           python setup.py build_ext --inplace
 
   build:
@@ -115,7 +115,7 @@ jobs:
 
       - name: Compile Cython extensions
         run: |
-          cython rand/fast_rand.pyx
+          cython rand/nazo_rand.pyx
 
       - name: Add execute permission to build script
         run: chmod +x ${{ github.workspace }}/.github/workflows/build-manylinux-wheels.sh

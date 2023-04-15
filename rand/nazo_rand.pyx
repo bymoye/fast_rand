@@ -3,7 +3,7 @@
 cimport cython
 from libc.stdint cimport int64_t, uint64_t
 
-cdef extern from "fast_rand.hpp" namespace "Storm":
+cdef extern from "nazo_rand.hpp" namespace "Storm":
     ctypedef int64_t Integer
     void seed(uint64_t seed)
     Integer uniform_int_variate_noargs()

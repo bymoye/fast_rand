@@ -1,1 +1,1 @@
-from .fast_rand import *
+from .nazo_rand import *

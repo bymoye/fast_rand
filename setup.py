@@ -8,11 +8,11 @@ def readme():
 
 
 setup(
-    name="fast_rand",
+    name="nazo_rand",
     ext_modules=cythonize(
         Extension(
             name="",
-            sources=["rand/fast_rand.pyx"],
+            sources=["rand/nazo_rand.pyx"],
             language=["c++"],
             extra_compile_args=["-std=c++17", "-O3"],
             extra_link_args=["-O3"],
@@ -34,10 +34,10 @@ setup(
     license="Free for non-commercial use",
     package_data={
         "": [
-            "rand/fast_rand.pyi",
-            "rand/fast_rand.pyx",
-            "rand/fast_rand.hpp",
-            "rand/fast_rand.pxd",
+            "rand/nazo_rand.pyi",
+            "rand/nazo_rand.pyx",
+            "rand/nazo_rand.hpp",
+            "rand/nazo_rand.pxd",
         ]
     },
     include_package_data=True,

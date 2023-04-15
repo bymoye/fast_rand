@@ -8,7 +8,7 @@ A fast random number generator for python
 example：
 
 ```python
-from rand_int import choice
+from nazo_rand import choice
 temp = [1,2,3,4,5,6]
 choice(temp)
 ```
@@ -17,7 +17,7 @@ choice(temp)
 example:
 
 ```python
-from rand_int import randbelow
+from nazo_rand import randbelow
 randbelow(10)   # -> [0, 10)
 randbelow(0)    # -> [0, 0) => 0
 randbelow(-10)  # -> (-10, 0]
@@ -27,7 +27,7 @@ randbelow(-10)  # -> (-10, 0]
 example:
 
 ```python
-from rand_int import randint
+from nazo_rand import randint
 randint(1, 10)   # -> [1, 10]
 randint(10, 1)   # -> [1, 10]
 randint(10, 10)  # -> [10, 10] => 10
@@ -37,7 +37,7 @@ randint(10, 10)  # -> [10, 10] => 10
 example:
 
 ```python
-from rand_int import randrange
+from nazo_rand import randrange
 randrange(10)           # -> [0, 10) by whole numbers
 randrange(1, 10)        # -> [1, 10) by whole numbers
 randrange(1, 10, 2)     # -> [1, 10) by 2, odd numbers
