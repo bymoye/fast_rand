@@ -13,7 +13,7 @@ cdef extern from "fast_rand.hpp" namespace "Storm":
     double uniform_real_variate_noargs()
     double uniform_real_variate(double a, double b)
 
-cpdef Integer random_integer_noargs():
+cpdef int random_integer_noargs():
     return uniform_int_variate_noargs()
 
 cpdef void shuffle(list array):

@@ -1,7 +1,9 @@
 # cython: language_level=3
 # distutils: language = c++
+from libc.stdint cimport int64_t, uint64_t
 
 #cpdef void seed(int rseed = ?)
+ctypedef int64_t Integer
 cpdef void shuffle(list array)
 cpdef int random_integer_noargs()
 cpdef object random_choice(object elements)
