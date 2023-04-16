@@ -27,15 +27,23 @@ cpdef int randbelow(int a):
 cpdef int randint(int a, int b):
     return uniform_int_variate(a, b)
 
-@cython.boundscheck(False)
-@cython.wraparound(False)
-cpdef object random_choice(object elements):
-    cdef Py_ssize_t index = randbelow(len(elements))
-    return elements[index]
+
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef list random_sample(object container, Py_ssize_t count):
+cpdef object random_choice(object container):
+    cdef Py_ssize_t index = randbelow(len(container))
+    return container[index]
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cpdef list[object] random_choices(object container, Py_ssize_t count):
+    cdef Py_ssize_t container_length = len(container)
+    return [container[randbelow(container_length)] for _ in range(count)]
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cpdef list[object] random_sample(object container, Py_ssize_t count):
     cdef Py_ssize_t container_length = len(container)
     cdef Py_ssize_t i, j
     cdef list result = [None] * count

@@ -40,7 +40,7 @@ def randbelow(n: int) -> int:
     """
     ...
 
-def random_choice(elements: Union[list, tuple, str, bytes]) -> Any:
+def random_choice(container: Union[list, tuple, str, bytes]) -> Any:
     """从列表、元组、字符串或字节串中随机选择一个元素。
 
     Args:
@@ -48,6 +48,18 @@ def random_choice(elements: Union[list, tuple, str, bytes]) -> Any:
 
     Returns:
         Any: 随机选择的元素。
+    """
+    ...
+
+def random_choices(container: Union[list, tuple, str, bytes], count: int) -> list[Any]:
+    """从列表、元组、字符串或字节串中随机选择count个元素。
+
+    Args:
+        elements (Union[list, tuple, str, bytes]): 要选择的元素。
+        count (int): 选择的元素个数。
+
+    Returns:
+        list[Any]: 随机选择的元素。
     """
     ...
 
