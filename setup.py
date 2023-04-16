@@ -27,7 +27,7 @@ setup(
     ),
     author="bymoye",
     author_email="s3moye@gmail.com",
-    version="0.0.5",
+    version="0.0.6",
     description="A fast random number generator for python",
     long_description=readme(),
     long_description_content_type="text/markdown",
