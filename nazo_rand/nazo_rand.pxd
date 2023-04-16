@@ -5,6 +5,7 @@
 cpdef void shuffle(list array)
 cpdef int random_integer_noargs()
 cpdef object random_choice(object elements)
+cpdef list random_sample(object container, Py_ssize_t count)
 cpdef int randbelow(int a)
 cpdef int randint(int a,int b)
 cpdef int randrange(int start,int stop=?,int step=?)

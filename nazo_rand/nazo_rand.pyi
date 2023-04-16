@@ -9,6 +9,18 @@ def shuffle(array: list) -> None:
     """
     ...
 
+def random_sample(container: Union[list, tuple, str, bytes], count: int) -> list[Any]:
+    """从容器中随机抽取count个元素。
+
+    Args:
+        container (Union[list, tuple, str, bytes]): 要抽取的容器。
+        count (int): 要抽取的元素个数。
+
+    Returns:
+        list[Any]: 抽取的元素。
+
+    """
+
 def random_integer_noargs() -> int:
     """生成一个随机整数
 

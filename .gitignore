@@ -2,3 +2,4 @@ __pycache__
 nazo_rand.cpp
 *.so
 build
+.vscode/

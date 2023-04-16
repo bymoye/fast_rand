@@ -24,15 +24,32 @@ cpdef void shuffle(list array):
 cpdef int randbelow(int a):
     return random_below(a)
 
+cpdef int randint(int a, int b):
+    return uniform_int_variate(a, b)
+
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef object random_choice(object elements):
     cdef Py_ssize_t index = randbelow(len(elements))
     return elements[index]
 
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cpdef list random_sample(object container, Py_ssize_t count):
+    cdef Py_ssize_t container_length = len(container)
+    cdef Py_ssize_t i, j
+    cdef list result = [None] * count
+    cdef list temp = list(container)
 
-cpdef int randint(int a, int b):
-    return uniform_int_variate(a, b)
+    if count > container_length:
+        raise ValueError("Sample larger than population")
+
+    for i in range(count):
+        j = uniform_int_variate(i, container_length - 1)
+        result[i] = temp[j]
+        temp[j] = temp[i]
+
+    return result
 
 cpdef int randrange(int start, int stop=0, int step=1):
     if stop == 0:
