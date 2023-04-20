@@ -40,7 +40,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install cython==0.29.34 --install-option="--no-cython-compile"
+          pip install cython==0.29.34 --global-option="build_ext" --config-setting=no_cython_compile:True
 
       - name: Compile Cython extensions
         run: |
@@ -68,7 +68,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install cython==0.29.34 --install-option="--no-cython-compile"
+          pip install cython==0.29.34 --global-option="build_ext" --config-setting=no_cython_compile:True
 
       - name: Compile Cython extensions
         run: |
@@ -110,7 +110,7 @@ jobs:
 
       - name: Install build dependencies
         run: |
-          pip install cython --install-option="--no-cython-compile"
+          pip install cython==0.29.34 --global-option="build_ext" --config-setting=no_cython_compile:True
           python -m pip install --upgrade setuptools pip wheel
 
       - name: Compile Cython extensions
