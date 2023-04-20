@@ -13,9 +13,12 @@ extra_link_args = []
 
 if platform == "win32":
     extra_compile_args = ["/std:c++17", "/O2"]
-else:
+elif platform == "linux":
     extra_compile_args = ["-std=c++17", "-O3"]
     extra_link_args = ["-Wl,-O3"]
+elif platform == "darwin":  # macOS
+    extra_compile_args = ["-std=c++17", "-O3"]
+    extra_link_args = ["-Wl,-dead_strip"]
 
 setup(
     name="nazo_rand",
