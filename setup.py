@@ -13,11 +13,9 @@ extra_link_args = []
 
 if platform == "win32":
     extra_compile_args = ["/std:c++17", "/O2"]
-    extra_link_args = ["/O2"]
 else:
     extra_compile_args = ["-std=c++17", "-O3"]
-    extra_link_args = ["-O3"]
-
+    extra_link_args = ["-Wl,-O3"]
 
 setup(
     name="nazo_rand",
