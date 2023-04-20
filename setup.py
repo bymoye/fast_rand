@@ -1,10 +1,22 @@
 from setuptools import setup, Extension
 from Cython.Build import cythonize
+from sys import platform
 
 
 def readme():
     with open("README.md") as f:
         return f.read()
+
+
+extra_compile_args = []
+extra_link_args = []
+
+if platform == "win32":
+    extra_compile_args = ["/std:c++17", "/O2"]
+    extra_link_args = ["/O2"]
+else:
+    extra_compile_args = ["-std=c++17", "-O3"]
+    extra_link_args = ["-O3"]
 
 
 setup(
@@ -14,8 +26,8 @@ setup(
             name="",
             sources=["nazo_rand/nazo_rand.pyx"],
             language=["c++"],
-            extra_compile_args=["-std=c++17", "-O3"],
-            extra_link_args=["-O3"],
+            extra_compile_args=extra_compile_args,
+            extra_link_args=extra_link_args,
         ),
         compiler_directives={
             "language_level": 3,
