@@ -21,7 +21,7 @@ cdef inline int64_t cy_uniform_int_variate(int64_t a, int64_t b) nogil:
 cpdef int random_integer_noargs():
     return uniform_int_variate_noargs()
 
-cpdef void shuffle(list[object] array):
+cpdef void shuffle(list array):
     cdef int i, j
     cdef object temp
     cdef int length = len(array)
@@ -30,6 +30,7 @@ cpdef void shuffle(list[object] array):
         temp = array[i]
         array[i] = array[j]
         array[j] = temp
+
 
 def randbelow(a:int) -> int:
     return random_below(a)
