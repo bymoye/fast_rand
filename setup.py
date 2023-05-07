@@ -40,7 +40,7 @@ setup(
     ),
     author="bymoye",
     author_email="s3moye@gmail.com",
-    version="0.0.7",
+    version="0.0.8",
     description="A fast random number generator for python",
     long_description=readme(),
     long_description_content_type="text/markdown",

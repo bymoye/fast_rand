@@ -12,20 +12,24 @@ cdef extern from "nazo_rand.hpp" namespace "Storm":
     double uniform_real_variate_noargs()
     double uniform_real_variate(double a, double b) nogil
 
-cdef int64_t cy_random_below(int64_t number) nogil:
+cdef inline int64_t cy_random_below(int64_t number) nogil:
     return random_below(number)
 
-cdef int64_t cy_uniform_int_variate(int64_t a, int64_t b) nogil:
+cdef inline int64_t cy_uniform_int_variate(int64_t a, int64_t b) nogil:
     return uniform_int_variate(a, b)
 
 cpdef int random_integer_noargs():
     return uniform_int_variate_noargs()
 
-cpdef void shuffle(list array):
-    for i in reversed(range(len(array) - 1)):
-        j = randrange(i, len(array), 1)
-        array[i], array[j] = array[j], array[i]
-
+cpdef void shuffle(list[object] array):
+    cdef int i, j
+    cdef object temp
+    cdef int length = len(array)
+    for i in range(length - 1, 0, -1):
+        j = cy_uniform_int_variate(0, i)
+        temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
 
 def randbelow(a:int) -> int:
     return random_below(a)
