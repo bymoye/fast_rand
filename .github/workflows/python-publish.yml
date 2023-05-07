@@ -74,21 +74,21 @@ jobs:
         run: |
           python3 setup.py build_ext --inplace
 
-      - name: Install distribution dependencies
-        run: pip install --upgrade twine setuptools wheel build
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.10
+      # - name: Install distribution dependencies
+      #   run: pip install --upgrade twine setuptools wheel build
+      #   if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.10
 
-      - name: Create distribution package
-        run: python setup.py sdist
-        # run: python -m build
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.10
+      # - name: Create distribution package
+      #   # run: python setup.py sdist
+      #   run: python -m build
+      #   if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.10
 
-      - name: Upload distribution package
-        uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: dist
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.10
+      # - name: Upload distribution package
+      #   uses: actions/upload-artifact@master
+      #   with:
+      #     name: dist
+      #     path: dist
+      #   if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.10
 
   build-wheels:
     needs: build
@@ -132,7 +132,7 @@ jobs:
       - name: Build wheels (non-linux)
         if: ${{ !startsWith(matrix.os, 'ubuntu') }}
         run: |
-          python setup.py bdist_wheel
+          python -m build
 
       - uses: actions/upload-artifact@v1
         with:
