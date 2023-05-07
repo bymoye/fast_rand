@@ -130,7 +130,7 @@ jobs:
           entrypoint: /github/workspace/.github/workflows/build-manylinux-wheels.sh
 
       - name: Build wheels (non-linux)
-        if: "!startsWith(matrix.os, 'ubuntu')"
+        if: ${{ !startsWith(matrix.os, 'ubuntu') }}
         run: |
           python -m build
 
