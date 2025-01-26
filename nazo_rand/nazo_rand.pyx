@@ -1,4 +1,4 @@
-# cython: language_level=3
+# cython: language_level=3, freethreading_compatible=True
 # distutils: language = c++
 cimport cython
 from libc.stdint cimport int64_t, uint64_t
@@ -12,10 +12,10 @@ cdef extern from "nazo_rand.hpp" namespace "Storm":
     double uniform_real_variate_noargs()
     double uniform_real_variate(double a, double b) nogil
 
-cdef inline int64_t cy_random_below(int64_t number) nogil:
+cdef inline int64_t cy_random_below(int64_t number) except -1 nogil:
     return random_below(number)
 
-cdef inline int64_t cy_uniform_int_variate(int64_t a, int64_t b) nogil:
+cdef inline int64_t cy_uniform_int_variate(int64_t a, int64_t b) except -1 nogil:
     return uniform_int_variate(a, b)
 
 cpdef int random_integer_noargs():

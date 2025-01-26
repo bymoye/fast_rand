@@ -1,9 +1,9 @@
-# cython: language_level=3
+# cython: language_level=3, freethreading_compatible=True
 # distutils: language = c++
 from libc.stdint cimport int64_t
 #cpdef void seed(int rseed = ?)
-cdef int64_t cy_random_below(int64_t number) nogil
-cdef int64_t cy_uniform_int_variate(int64_t a, int64_t b) nogil
+cdef int64_t cy_random_below(int64_t number) except -1 nogil
+cdef int64_t cy_uniform_int_variate(int64_t a, int64_t b) except -1 nogil
 cpdef void shuffle(list[object] array)
 cpdef int random_integer_noargs()
 cpdef object random_choice(object container)
